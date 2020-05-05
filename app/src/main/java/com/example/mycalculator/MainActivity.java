@@ -2,6 +2,7 @@ package com.example.mycalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import android.view.View;
@@ -33,15 +34,13 @@ public class MainActivity extends AppCompatActivity {
 
     MediaPlayer clicks;
 
-    Vibrator vibrate;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         clicks = MediaPlayer.create(this, R.raw.click);
-        vibrate = (Vibrator) getSystemService(VIBRATOR_SERVICE);
-        vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
+        final Vibrator bruh = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        bruh.vibrate(100);
         one = (Button) findViewById(R.id.one);
         two = (Button) findViewById(R.id.two);
         three = (Button) findViewById(R.id.three);
@@ -66,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 edit.setText(edit.getText() + "1");
                 clicks.start();
-                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
+                bruh.vibrate(100);
             }
         });
 
@@ -74,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 edit.setText(edit.getText() + "2");
                 clicks.start();
-                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
+                bruh.vibrate(100);
             }
         });
 
@@ -82,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 edit.setText(edit.getText() + "3");
                 clicks.start();
-                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
+                bruh.vibrate(100);
             }
         });
 
@@ -90,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 edit.setText(edit.getText() + "4");
                 clicks.start();
-                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
+                bruh.vibrate(100);
             }
         });
 
@@ -98,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 edit.setText(edit.getText() + "5");
                 clicks.start();
-                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
+                bruh.vibrate(100);
             }
         });
 
@@ -106,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 edit.setText(edit.getText() + "6");
                 clicks.start();
-                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
+                bruh.vibrate(100);
             }
         });
 
@@ -114,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 edit.setText(edit.getText() + "7");
                 clicks.start();
-                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
+                bruh.vibrate(100);
             }
         });
 
@@ -122,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 edit.setText(edit.getText() + "8");
                 clicks.start();
-                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
+                bruh.vibrate(100);
             }
         });
 
@@ -130,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 edit.setText(edit.getText() + "9");
                 clicks.start();
-                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
+                bruh.vibrate(100);
             }
         });
 
@@ -138,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 edit.setText(edit.getText() + "0");
                 clicks.start();
-                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
+                bruh.vibrate(100);
             }
         });
 
@@ -150,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
                 addition = true;
                 edit.setText(null);
                 clicks.start();
-                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
+                bruh.vibrate(100);
             }
         });
 
@@ -162,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
                 subtraction = true;
                 edit.setText(null);
                 clicks.start();
-                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
+                bruh.vibrate(100);
             }
         });
 
@@ -174,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
                 multiplication = true;
                 edit.setText(null);
                 clicks.start();
-                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
+                bruh.vibrate(100);
             }
         });
 
@@ -186,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
                 division = true;
                 edit.setText(null);
                 clicks.start();
-                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
+                bruh.vibrate(100);
             }
         });
 
@@ -209,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
                     division = false;
                 }
                 clicks.start();
-                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
+                bruh.vibrate(100);
             }
         });
 
@@ -226,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
                     edit.setText(edit.getText() + ".");
                 }
                 clicks.start();
-                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
+                bruh.vibrate(100);
             }
         });
 
@@ -236,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
                     edit.setText(edit.getText().subSequence(0, edit.getText().length() - 1));
                 }
                 clicks.start();
-                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
+                bruh.vibrate(100);
             }
         });
     }
