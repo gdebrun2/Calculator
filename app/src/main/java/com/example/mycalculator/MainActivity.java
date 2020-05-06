@@ -29,11 +29,12 @@ public class MainActivity extends AppCompatActivity {
 
     EditText edit;
 
+    MediaPlayer clicks;
+
     float valueOne, valueTwo;
 
     boolean addition, subtraction, multiplication, division;
 
-    MediaPlayer clicks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,6 +143,34 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        clear.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                edit.setText("");
+                clicks.start();
+                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
+            }
+        });
+
+        decimal.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (edit.getText() != null && !edit.getText().toString().contains(".")) {
+                    edit.setText(edit.getText() + ".");
+                }
+                clicks.start();
+                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
+            }
+        });
+
+        backspace.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (edit.getText() != null && edit.getText().length() > 0) {
+                    edit.setText(edit.getText().subSequence(0, edit.getText().length() - 1));
+                }
+                clicks.start();
+                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
+            }
+        });
+
         add.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (edit.getText() != null && edit.getText().length() > 0) {
@@ -207,33 +236,6 @@ public class MainActivity extends AppCompatActivity {
                 } else if (division) {
                     edit.setText(valueOne / valueTwo + "");
                     division = false;
-                }
-                clicks.start();
-                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
-            }
-        });
-
-        clear.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                edit.setText("");
-                clicks.start();
-            }
-        });
-
-        decimal.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                if (edit.getText() != null && !edit.getText().toString().contains(".")) {
-                    edit.setText(edit.getText() + ".");
-                }
-                clicks.start();
-                vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
-            }
-        });
-
-        backspace.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                if (edit.getText() != null && edit.getText().length() > 0) {
-                    edit.setText(edit.getText().subSequence(0, edit.getText().length() - 1));
                 }
                 clicks.start();
                 vibrate.vibrate(VibrationEffect.EFFECT_CLICK);
